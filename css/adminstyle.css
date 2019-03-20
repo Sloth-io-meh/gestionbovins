@@ -1,0 +1,43 @@
+body .container-fluid
+{
+  background-color:#0083C9;
+  position: relative; /* to make footer in the bottom of the body*/
+    padding-bottom: 45px;  /*footer heigh + 10px*/
+    margin: 0; /*to make footer fill the screen width without scroll*/
+
+}
+.col-sm-10
+{
+  background-color: #fff;
+}
+
+#Sidemenu a
+{
+  color: #9fb1c2;
+}
+#Sidemenu .active a .col-sm-2
+{
+  color: #fff;
+  background-color: #27AAE1;
+  font-weight: bold;
+}
+#Sidemenu a:hover{
+  color: #fff;
+  background-color: #1ab394;
+  font-weight: bold;
+  display: block;
+}
+#logo
+{
+  height: 100px;
+  width: 100%;
+}
+#Footer
+{
+
+  padding: 10px;
+  border-top: 1 solid blue;
+  color: #eeeeee;
+  background-color: #211f22;
+  text-align: center;
+}
