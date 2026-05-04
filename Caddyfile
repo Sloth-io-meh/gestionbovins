@@ -1,8 +1,10 @@
 {
+	order php before file_server
 	admin off
 }
 
 :80 {
 	root * /app
+	php
 	file_server
 }
