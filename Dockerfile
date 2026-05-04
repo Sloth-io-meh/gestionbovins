@@ -1,8 +1,9 @@
 FROM dunglas/frankenphp:latest
 
 COPY . /app
-COPY Caddyfile /etc/caddy/Caddyfile
 
 RUN install-php-extensions mysqli
+
+ENV SERVER_NAME=:80
 
 EXPOSE 80
