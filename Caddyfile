@@ -1,5 +1,5 @@
 :80 {
     root * /app
-    php
     file_server
+    try_files {path} /index.php
 }
