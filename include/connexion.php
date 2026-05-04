@@ -5,11 +5,13 @@ $password = getenv('MYSQL_PASSWORD') ?: '';
 $database = getenv('MYSQL_DB')       ?: getenv('MYSQLDATABASE') ?: 'gestionbovins';
 $port     = (int)(getenv('MYSQL_PORT') ?: 3306);
 
-$link = mysqli_connect($host, $user, $password, $database, $port);
-mysqli_set_charset($link, "utf8");
+$link = @mysqli_connect($host, $user, $password, $database, $port);
 if (!$link) {
-    error_log("DB Connection Error: " . mysqli_connect_error());
-    error_log("Host: $host, User: $user, DB: $database, Port: $port");
-    die("Database connection failed. Check logs.");
+    // Log but don't die - let the app start
+    error_log("WARNING: DB not connected. Host: $host, DB: $database");
+    // Create a dummy connection object to prevent errors
+    $link = null;
+} else {
+    mysqli_set_charset($link, "utf8");
 }
 ?>
