@@ -5,4 +5,4 @@ COPY Caddyfile /etc/caddy/Caddyfile
 
 RUN install-php-extensions mysqli
 
-EXPOSE 8080
+EXPOSE 80
