@@ -1,7 +1,5 @@
 :80 {
     root * /app
-    encode gzip
-    try_files {path} {path}/ /index.php?{query}
     php
     file_server
 }
