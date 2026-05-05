@@ -19,12 +19,12 @@ if (isset($_POST["submit"])){
       $exec1 = mysqli_query($link, $req1);
       if ($exec1) {
         $_SESSION["SuccessMessage"] = "Modifié Avec success";
-        redirect("gestBovins.php");
+        redirect("GestBovins.php");
       }
 
 }elseif (!$exec || !$exec1) {
   $_SESSION["Message"] = "Erreur d'ajout";
-  redirect("gestBovins.php");
+  redirect("GestBovins.php");
 }
 }
 } catch (\Exception $e) {

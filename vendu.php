@@ -16,10 +16,10 @@ if (isset($_POST["submit"])){
   $exec = mysqli_query($link, $req);
   if ($exec) {
   $_SESSION["SuccessMessage"] = "Modifié Avec success";
-  redirect("gestBovins.php");
+  redirect("GestBovins.php");
 }elseif ($exec == false ) {
   $_SESSION["Message"] = "Erreur de modification";
-  redirect("gestBovins.php");
+  redirect("GestBovins.php");
 }
 }
 } catch (\Exception $e) {

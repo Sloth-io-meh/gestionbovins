@@ -12,10 +12,10 @@ $req = "UPDATE bovins set id_q='1' WHERE id_bov='$idurl'";
 $exec = mysqli_query($link, $req);
 if ($exec) {
   $_SESSION["SuccessMessage"]= " ajouté";
-    redirect("gestBovins.php");
+    redirect("GestBovins.php");
 } else {
     $_SESSION["ErrorMessage"]="Error";
-      redirect("gestBovins.php");
+      redirect("GestBovins.php");
   }
 }
 ?>

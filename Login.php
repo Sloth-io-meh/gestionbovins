@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
       file_put_contents(__DIR__ . "/debug_login.log", "DEBUG: session_id after set: " . session_id() . "\n", FILE_APPEND);
       error_log("DEBUG: session content: " . json_encode($_SESSION));
       file_put_contents(__DIR__ . "/debug_login.log", "DEBUG: session content: " . json_encode($_SESSION) . "\n", FILE_APPEND);
-      redirect("gestBovins.php");
+      redirect("GestBovins.php");
     } else {
       error_log("DEBUG: login failed for: $username");
       file_put_contents(__DIR__ . "/debug_login.log", "DEBUG: login failed for: $username\n", FILE_APPEND);
