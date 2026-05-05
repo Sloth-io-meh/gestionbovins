@@ -1,0 +1,16 @@
+{
+	admin off
+}
+
+:80 {
+	root * /app
+	
+	# Reverse proxy PHP requests to FrankenPHP on port 9000
+	@php {
+		file
+		path *.php
+	}
+	reverse_proxy @php localhost:9000
+	
+	file_server
+}
