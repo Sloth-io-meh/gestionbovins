@@ -1,30 +1,28 @@
-<?php require_once("include/Sessions.php") ?>
-<?php require_once("include/functions.php") ?>
-<?php require_once("include/connexion.php") ?>
-
 <?php
-//$mysqli->set_charset('utf-8');
+require_once("include/Sessions.php");
+require_once("include/functions.php");
+require_once("include/connexion.php");
 
 //mysqli_query($link,'SET CHARACTER_SET utf8');
 if (isset($_POST['submit'])) {
-$username = $_POST['Username'];
-$password = $_POST['Password'];
-if (empty($username)||empty($password)) {
-  $_SESSION["ErrorMessage"]="All fields must be filled";
-  redirect("Login.php");
-}else {
-  $found=logintempt($username,$password);
-  $_SESSION["user_Id"] = $found["Id_user"];
-    $_SESSION["username"] = $found["mail"];
+  $username = $_POST['Username'];
+  $password = $_POST['Password'];
 
-  if ($found) {
-    $_SESSION["succesMessage"]="Welcome {$_SESSION["username"]} ";
-    redirect("gestBovins.php");
-
-  }else {
-    $_SESSION["ErrorMessage"]="username/password invalide ";
+  if (empty($username) || empty($password)) {
+    $_SESSION["ErrorMessage"] = "All fields must be filled";
     redirect("Login.php");
-  }
+  } else {
+    $found = logintempt($username, $password);
+
+    if ($found) {
+      $_SESSION["user_Id"] = $found["Id_user"];
+      $_SESSION["username"] = $found["mail"];
+      $_SESSION["succesMessage"] = "Welcome {$_SESSION["username"]} ";
+      redirect("gestBovins.php");
+    } else {
+      $_SESSION["ErrorMessage"] = "username/password invalide ";
+      redirect("Login.php");
+    }
   }
 }
 
