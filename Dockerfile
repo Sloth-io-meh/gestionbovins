@@ -1,8 +1,11 @@
-FROM dunglas/frankenphp:latest
+FROM php:8.2-cli
+
+WORKDIR /app
 
 COPY . /app
-COPY Caddyfile /etc/caddy/Caddyfile
 
-RUN install-php-extensions mysqli
+RUN docker-php-ext-install mysqli
 
-EXPOSE 80
+EXPOSE 8080
+
+CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-8080} router.php"]
