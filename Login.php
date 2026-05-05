@@ -14,26 +14,12 @@ if (isset($_POST['submit'])) {
   } else {
     $found = logintempt($username, $password);
 
-    // Debug logging (temporary) — records result and session id for diagnosis
-    error_log("DEBUG: login attempt for: $username");
-    file_put_contents(__DIR__ . "/debug_login.log", "DEBUG: login attempt for: $username\n", FILE_APPEND);
-    error_log("DEBUG: logintempt result: " . json_encode($found));
-    file_put_contents(__DIR__ . "/debug_login.log", "DEBUG: logintempt result: " . json_encode($found) . "\n", FILE_APPEND);
-    error_log("DEBUG: session_id before set: " . session_id());
-    file_put_contents(__DIR__ . "/debug_login.log", "DEBUG: session_id before set: " . session_id() . "\n", FILE_APPEND);
-
     if ($found) {
       $_SESSION["user_Id"] = $found["Id_user"];
       $_SESSION["username"] = $found["mail"];
       $_SESSION["SuccessMessage"] = "Welcome {$_SESSION["username"]} ";
-      error_log("DEBUG: session_id after set: " . session_id());
-      file_put_contents(__DIR__ . "/debug_login.log", "DEBUG: session_id after set: " . session_id() . "\n", FILE_APPEND);
-      error_log("DEBUG: session content: " . json_encode($_SESSION));
-      file_put_contents(__DIR__ . "/debug_login.log", "DEBUG: session content: " . json_encode($_SESSION) . "\n", FILE_APPEND);
       redirect("GestBovins.php");
     } else {
-      error_log("DEBUG: login failed for: $username");
-      file_put_contents(__DIR__ . "/debug_login.log", "DEBUG: login failed for: $username\n", FILE_APPEND);
       $_SESSION["ErrorMessage"] = "username/password invalide ";
       redirect("Login.php");
     }
