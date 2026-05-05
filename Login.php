@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
     if ($found) {
       $_SESSION["user_Id"] = $found["Id_user"];
       $_SESSION["username"] = $found["mail"];
-      $_SESSION["succesMessage"] = "Welcome {$_SESSION["username"]} ";
+      $_SESSION["SuccessMessage"] = "Welcome {$_SESSION["username"]} ";
       redirect("gestBovins.php");
     } else {
       $_SESSION["ErrorMessage"] = "username/password invalide ";
@@ -33,8 +33,8 @@ if (isset($_POST['submit'])) {
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/adminstyle.css">
   <title>Login_page</title>
 </head>
